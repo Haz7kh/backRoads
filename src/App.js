@@ -2,8 +2,8 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import NavBar from "./components/NavBar";
-import Services from "./components/Services";
-import Tours from "./components/Tours";
+import ReservationForm from "./components/reservation/ResvationsForm";
+import OurMenu from "./components/menu/OurMenu";
 
 function App() {
   return (
@@ -11,8 +11,8 @@ function App() {
       <NavBar />
       <Hero />
       <About />
-      <Services />
-      <Tours />
+      <OurMenu />
+      <ReservationForm />
       <Footer />
     </>
   );

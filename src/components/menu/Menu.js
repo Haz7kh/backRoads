@@ -1,5 +1,4 @@
 import React from "react";
-import menu from "../../data";
 
 const Menu = ({ items }) => {
   return (

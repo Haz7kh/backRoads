@@ -31,7 +31,7 @@
 }
 
 .reservation-form button[type="submit"] {
-  background-color: #007bff;
+  background-color: #d99400;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -41,5 +41,6 @@
 }
 
 .reservation-form button[type="submit"]:hover {
-  background-color: #0069d9;
+  background-color: #050505;
+  color: #fff;
 }

@@ -4,31 +4,28 @@ import { pageLinks, socialLinks } from "../data";
 
 const NavBar = () => {
   const [scroll, setScroll] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // add this state variable
+  const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setScroll(window.scrollY > 0);
     });
   }, []);
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
 
   return (
     <nav className={scroll ? "scrolled-nav" : "navbar"}>
       <div className="nav-center">
         <div className="nav-header">
           <img src={logo} className="nav-logo" alt="backRoads" />
-          <button
-            type="button"
-            className="nav-toggle"
-            id="nav-toggle"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <button className="nav-toggle" onClick={toggleMenu}>
             <i className="fas fa-bars"></i>
           </button>
         </div>
 
-        {/* regular nav links */}
-        <ul className="nav-links">
+        <ul className={showMenu ? "nav-links show-links" : "nav-links"}>
           {pageLinks.map((link) => {
             return (
               <li key={link.id}>
@@ -40,7 +37,6 @@ const NavBar = () => {
           })}
         </ul>
 
-        {/* social icons */}
         <ul className="nav-icons">
           {socialLinks.map((social) => {
             return (
@@ -57,21 +53,6 @@ const NavBar = () => {
             );
           })}
         </ul>
-
-        {/* mobile nav links */}
-        {isMobileMenuOpen && (
-          <ul className="nav-links-mobile">
-            {pageLinks.map((link) => {
-              return (
-                <li key={link.id}>
-                  <a href={link.href} className="nav-link-mobile">
-                    {link.text}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        )}
       </div>
     </nav>
   );
